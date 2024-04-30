@@ -236,6 +236,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &363425348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 363425350}
+  - component: {fileID: 363425349}
+  m_Layer: 0
+  m_Name: DynamicSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &363425349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363425348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77bca8a4a949bd4287ba20530f1cb51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AsteroidListe:
+  - {fileID: 7099188325192664342, guid: 472f20873df38b94eb1c56a260f3a922, type: 3}
+  - {fileID: 2036514630890518315, guid: 50cd4f8b5c59c004da3278847df25b22, type: 3}
+  SpawnerScaleX: 50
+  SpawnerScaleY: 50
+  Margin: 5
+  SpawnChanceMultiplier: 0.2
+  TimerSpawn: 1
+--- !u!4 &363425350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363425348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.13999987, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +436,7 @@ GameObject:
   - component: {fileID: 1705592322}
   - component: {fileID: 1705592321}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: StaticSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -405,8 +457,11 @@ MonoBehaviour:
   AsteroidListe:
   - {fileID: 7099188325192664342, guid: 472f20873df38b94eb1c56a260f3a922, type: 3}
   - {fileID: 2036514630890518315, guid: 50cd4f8b5c59c004da3278847df25b22, type: 3}
-  SpawnerScale: 100
-  Margin: 5
+  SpawnerScaleX: 50
+  SpawnerScaleY: 50
+  SpawnerScaleZ: 50
+  Margin: 25
+  SpawnChanceMultiplier: 0.1
 --- !u!4 &1705592322
 Transform:
   m_ObjectHideFlags: 0
@@ -429,3 +484,4 @@ SceneRoots:
   - {fileID: 961739753}
   - {fileID: 203844589}
   - {fileID: 1705592322}
+  - {fileID: 363425350}
