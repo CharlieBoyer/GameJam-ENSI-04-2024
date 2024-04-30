@@ -269,18 +269,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7586115544bfad9458b9c07825253845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseSpeed: 100
-  VelocityIncrement: 1
-  MaximumVelocity: 5
-  Aim:
-    m_Name: Aim
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: e911d287-91a9-4409-bdf0-2b91e44f5098
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
+  Actions: {fileID: 0}
+  BaseSpeedMultiplier: 300
+  VelocityIncrement: 5
+  MaximumVelocity: 30
   Sensitivity: 0
 --- !u!114 &1790935500361983657
 MonoBehaviour:
