@@ -1,11 +1,6 @@
-using System;
-using System.Numerics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Quaternion = UnityEngine.Quaternion;
-using Vector2 = UnityEngine.Vector2;
-using Vector3 = UnityEngine.Vector3;
 
 [RequireComponent(typeof(Rigidbody))]
 public class ShipController : MonoBehaviour
@@ -68,7 +63,6 @@ public class ShipController : MonoBehaviour
         float incrementYaw = aimDelta.x * SensitivityYaw * Time.deltaTime;
         float incrementPitch = aimDelta.y * SensitivityPitch * Time.deltaTime;
 
-        Debug.Log($"AimDelta: Yaw[{aimDelta.x}], Pitch[{aimDelta.y}]");
 
         if ((incrementPitch > 0 && incrementPitch < AxisAuthorityThreshold) || (incrementPitch < 0 && incrementPitch > -AxisAuthorityThreshold))
             incrementPitch = 0;
@@ -79,11 +73,9 @@ public class ShipController : MonoBehaviour
         _pitch -= incrementPitch;
         _pitch = Mathf.Clamp(_pitch, -MaximumPitch, MaximumPitch);
 
-        //Quaternion targetRotation = Quaternion.AngleAxis(_pitch, Vector3.right) * Quaternion.AngleAxis(_yaw, Vector3.up);
         Vector3 targetRotation = (Vector3.right * _pitch) + (Vector3.up * _yaw);
         // targetRotation = Vector3.Lerp(transform.rotation.eulerAngles, targetRotation, Time.deltaTime * TorqueSpeed);
         transform.eulerAngles = targetRotation;
-        //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * TorqueSpeed);
     }
 
     private void UpdateVelocity()

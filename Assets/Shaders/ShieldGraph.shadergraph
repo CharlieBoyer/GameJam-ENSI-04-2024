@@ -1696,8 +1696,8 @@
     "m_ShaderOutputName": "OutMinMax",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 1.5,
-        "y": 7.0
+        "x": 5.0,
+        "y": 10.0
     },
     "m_DefaultValue": {
         "x": 0.0,
