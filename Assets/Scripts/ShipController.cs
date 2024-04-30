@@ -1,7 +1,11 @@
 using System;
+using System.Numerics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 [RequireComponent(typeof(Rigidbody))]
 public class ShipController : MonoBehaviour
@@ -15,14 +19,17 @@ public class ShipController : MonoBehaviour
     public float MaximumVelocity;
 
     [Header("Torque")]
+    public float TorqueSpeed = 10f;
     public float Sensitivity;
 
     private Rigidbody _rb;
+    private InputAction _aim;
 
     private Vector3 _motion;
     private float _yaw;
     private float _pitch;
     private float _roll;
+    private float _velocity;
 
     private bool _acc;
     private bool _dec;
@@ -46,11 +53,13 @@ public class ShipController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _motion = Vector3.zero;
+        _aim = Actions.FindAction("Aim", true);
+
+        transform.rotation = Quaternion.identity;
     }
 
     private void Update()
     {
-        _rb.AddForce(_motion, ForceMode.Acceleration);
         UpdateVelocity();
         UpdateRotation();
     }
@@ -59,33 +68,28 @@ public class ShipController : MonoBehaviour
     {
         _pitch = Mathf.Clamp(_pitch, -80, 80);
 
-        transform.eulerAngles = new Vector3(_pitch, _yaw, 0f);
+        Quaternion targetRotation = Quaternion.AngleAxis(_pitch, Vector3.right) * Quaternion.AngleAxis(_yaw, Vector3.up);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * TorqueSpeed);
     }
 
     private void UpdateVelocity()
     {
-        if (_acc) _motion.z += VelocityIncrement * Time.deltaTime;
-        else if (_dec) _motion.z -= VelocityIncrement * Time.deltaTime;
+        if (_acc) _velocity += VelocityIncrement * Time.deltaTime;
+        else if (_dec) _velocity -= VelocityIncrement * Time.deltaTime;
 
-        _motion.z = Mathf.Clamp(_motion.z, 0, MaximumVelocity);
+        _motion = transform.forward * Mathf.Clamp(_velocity, 0, MaximumVelocity);
+        
+        _rb.AddForce(_motion, ForceMode.Acceleration);
     }
 
     #region Actions
-
-    public void OnMove(InputValue input)
-    {
-        Vector2 value = input.Get<Vector2>();
-
-        _motion.x = value.x * BaseSpeedMultiplier * Time.deltaTime;
-        _motion.y = value.y * BaseSpeedMultiplier * Time.deltaTime;
-    }
-
+    
     public void OnAim(InputValue input)
     {
         Vector2 mouseDelta = input.Get<Vector2>();
-
+        
         _yaw += mouseDelta.x * Sensitivity * Time.deltaTime;
-        _pitch += mouseDelta.y * Sensitivity * Time.deltaTime;
+        _pitch -= mouseDelta.y * Sensitivity * Time.deltaTime;
     }
 
     public void OnAccelerate() {
