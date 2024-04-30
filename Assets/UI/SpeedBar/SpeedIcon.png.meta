@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 053d2438b4baf2545a1d2c93bbbbd206
+guid: 8fb9fd5887ecb2446b9e0d68bd52a138
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,22 +97,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Speed_UI_0
+      name: SpeedIcon_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 1942
         y: 0
-        width: 2597
+        width: 657
         height: 423
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 74, y: 0, z: 668, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc047ce3e22ca354bb2e6d73458ab57c
-      internalID: 1227258729
+      spriteID: 67cc7e74f505c6e4298ff8602c5986fa
+      internalID: -1795881615
       vertices: []
       indices: 
       edges: []
@@ -120,7 +120,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 61519af716e14c144a38759ea6135533
+    spriteID: da3603a644fb9624e8cf889d072f6bcb
     internalID: 0
     vertices: []
     indices: 
@@ -128,7 +128,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Speed_UI_0: 1227258729
+      SpeedIcon_0: -1795881615
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

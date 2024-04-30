@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 053d2438b4baf2545a1d2c93bbbbd206
+guid: 66c9c78713c0976408faa97b2209a6ea
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,22 +97,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Speed_UI_0
+      name: Ui_Speedbar_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
-        width: 2597
-        height: 423
+        width: 423
+        height: 2599
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 74, y: 0, z: 668, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 105, z: 0, w: 676}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc047ce3e22ca354bb2e6d73458ab57c
-      internalID: 1227258729
+      spriteID: 53446f0d5daf37549a89169b70900635
+      internalID: 600000158
       vertices: []
       indices: 
       edges: []
@@ -120,7 +120,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 61519af716e14c144a38759ea6135533
+    spriteID: 723a09414af59814eabc33d01567c7cb
     internalID: 0
     vertices: []
     indices: 
@@ -128,7 +128,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Speed_UI_0: 1227258729
+      Ui_Speedbar_0: 600000158
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
