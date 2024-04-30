@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3857505486024024671}
   - component: {fileID: 6677691055338542460}
   - component: {fileID: -3325241877130439257}
+  - component: {fileID: 692746185632185396}
+  - component: {fileID: 1447206894143493920}
   m_Layer: 0
   m_Name: Asteroid4chris
   m_TagString: Untagged
@@ -107,4 +109,47 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -8136317043942708646, guid: 203ecff4ff7902746b2b58313a9fdb07, type: 3}
+  m_Mesh: {fileID: -8136317043942708646, guid: c1d7b860bc251b944b60f96095bfe732, type: 3}
+--- !u!54 &692746185632185396
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099188325192664342}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &1447206894143493920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099188325192664342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 063b877bf40d1f34d9a865a5119e4962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxImpulsePower: 10
+  MinImpulsePower: 1
+  MaxRotationSpeed: 0.005
+  MinRotationSpeed: 0.0005
