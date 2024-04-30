@@ -6,15 +6,6 @@
             "id": "6e25476e-00c7-4fb8-98a3-5d88389c94d7",
             "actions": [
                 {
-                    "name": "Aim",
-                    "type": "PassThrough",
-                    "id": "45c842b9-9846-4b9c-befb-ee7ede7f8b34",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Accelerate",
                     "type": "Value",
                     "id": "c6789349-8663-49a6-a4b2-c27dfb69138f",
@@ -31,31 +22,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Aim",
+                    "type": "Value",
+                    "id": "70b4629c-636a-4037-a243-8667438bd3dc",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "8c8e490b-c610-4785-884f-f04217b23ca4",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ffbc47a5-d3df-4465-99c3-8d12bc169349",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
@@ -70,21 +48,10 @@
                 {
                     "name": "",
                     "id": "143bb1cd-cc10-4eca-a2f0-a3664166fe91",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Accelerate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e46d2290-0650-4664-b11e-9b441acba034",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
                     "action": "Accelerate",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -102,8 +69,8 @@
                 },
                 {
                     "name": "",
-                    "id": "30bcf368-9fea-47b7-ad76-a5709a3482e1",
-                    "path": "<Gamepad>/leftTrigger",
+                    "id": "5397a62a-a8d7-4996-a916-45d85bd50419",
+                    "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -113,12 +80,23 @@
                 },
                 {
                     "name": "",
-                    "id": "aad1ec9c-eef2-4d1b-83ae-a117b626aade",
-                    "path": "<Keyboard>/downArrow",
+                    "id": "38d327b0-3579-4a9b-9f8b-595908ba83b1",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Brake",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "147c3336-eaef-46da-88e3-012adbfbacb2",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -136,7 +136,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3398443511821096545
 Transform:
@@ -235,7 +235,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!64 &2030101504103679262
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -271,11 +271,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Actions: {fileID: -944628639613478452, guid: dd40e99bff069b743aa5544aec5d7781, type: 3}
-  BaseSpeedMultiplier: 300
-  VelocityIncrement: 1
-  MaximumVelocity: 10
-  TorqueSpeed: 10
-  Sensitivity: 25
+  BaseSpeedMultiplier: 3000
+  VelocityIncrement: 5
+  MaximumVelocity: 30
+  TorqueSpeed: 15
+  AxisAuthorityThreshold: 0.1
+  MaximumPitch: 80
+  SensitivityYaw: 20
+  SensitivityPitch: 20
 --- !u!114 &1790935500361983657
 MonoBehaviour:
   m_ObjectHideFlags: 0
