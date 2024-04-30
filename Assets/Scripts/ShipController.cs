@@ -6,20 +6,23 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class ShipController : MonoBehaviour
 {
+    [Header("Inputs")]
+    public InputActionAsset Actions;
+    
     [Header("Velocity")]
-    public float BaseSpeed;
+    public float BaseSpeedMultiplier;
     public float VelocityIncrement;
     public float MaximumVelocity;
-    
-    [Header("Rotations")]
-    public float MaximumRoll;
-    public float MaximumPitch;
-    public float MaximumYaw;
+
+    [Header("Torque")]
+    public float Sensitivity;
 
     private Rigidbody _rb;
 
     private Vector3 _motion;
-    private Vector3 _angle;
+    private float _yaw;
+    private float _pitch;
+    private float _roll;
 
     private bool _acc;
     private bool _dec;
@@ -34,7 +37,7 @@ public class ShipController : MonoBehaviour
         Handles.Label(positionHandle, $"\ud83d\ude80 ({_motion.x}, {_motion.y}, {_motion.z})");
 
         Vector3 rotationHandle = transform.position + Vector3.up * -0.1f;
-        Handles.Label(rotationHandle, $"\ud83d\udd04 ({_angle.x}, {_angle.y}, {_angle.z})");
+        Handles.Label(rotationHandle, $"\ud83d\udd04 ({_pitch}, {_yaw}, {_roll})");
     }
 
     #endregion
@@ -43,7 +46,6 @@ public class ShipController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _motion = Vector3.zero;
-        _angle = Vector3.zero;
     }
 
     private void Update()
@@ -55,17 +57,9 @@ public class ShipController : MonoBehaviour
 
     private void UpdateRotation()
     {
-        switch (_angle) // Roll
-        {
-            case Vector3 { x: < 0 }:
-                
-            case Vector3 { x: > 0 }:
+        _pitch = Mathf.Clamp(_pitch, -80, 80);
 
-            case Vector3 { y: < 0 }:
-                break;
-            case Vector3 { y: > 0 }:
-                break;
-        }
+        transform.eulerAngles = new Vector3(_pitch, _yaw, 0f);
     }
 
     private void UpdateVelocity()
@@ -76,17 +70,22 @@ public class ShipController : MonoBehaviour
         _motion.z = Mathf.Clamp(_motion.z, 0, MaximumVelocity);
     }
 
+    #region Actions
+
     public void OnMove(InputValue input)
     {
         Vector2 value = input.Get<Vector2>();
 
-        _motion.x = value.x * BaseSpeed * Time.deltaTime;
-        _motion.y = value.y * BaseSpeed * Time.deltaTime;
+        _motion.x = value.x * BaseSpeedMultiplier * Time.deltaTime;
+        _motion.y = value.y * BaseSpeedMultiplier * Time.deltaTime;
     }
 
     public void OnAim(InputValue input)
     {
-        
+        Vector2 mouseDelta = input.Get<Vector2>();
+
+        _yaw += mouseDelta.x * Sensitivity * Time.deltaTime;
+        _pitch += mouseDelta.y * Sensitivity * Time.deltaTime;
     }
 
     public void OnAccelerate() {
@@ -98,4 +97,6 @@ public class ShipController : MonoBehaviour
         _dec = !_dec;
         if (_dec && _acc) _acc = false;
     }
+
+    #endregion
 }
