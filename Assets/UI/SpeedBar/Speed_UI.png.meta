@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,18 +95,40 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Speed_UI_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 2597
+        height: 423
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 74, y: 0, z: 668, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc047ce3e22ca354bb2e6d73458ab57c
+      internalID: 1227258729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 61519af716e14c144a38759ea6135533
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Speed_UI_0: 1227258729
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

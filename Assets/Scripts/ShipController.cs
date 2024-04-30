@@ -44,10 +44,7 @@ public class ShipController : MonoBehaviour
         Gizmos.color = Color.yellow;
             
         Vector3 positionHandle = transform.position + Vector3.up * 0.6f;
-        Handles.Label(positionHandle, $"\ud83d\ude80 ({_motion.x}, {_motion.y}, {_motion.z})");
-
-        Vector3 rotationHandle = transform.position + Vector3.up * -0.1f;
-        Handles.Label(rotationHandle, $"\ud83d\udd04 ({_pitch}, {_yaw}, {_roll})");
+        Handles.Label(positionHandle, $"\ud83d\ude80 ({_velocity})");
     }
 
     #endregion
