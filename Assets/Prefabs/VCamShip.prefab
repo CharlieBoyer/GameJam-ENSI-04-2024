@@ -131,12 +131,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TrackedObjectOffset: {x: 0, y: 0.35, z: -4}
-  m_LookaheadTime: 0.274
-  m_LookaheadSmoothing: 0
-  m_LookaheadIgnoreY: 0
-  m_XDamping: 0.5
-  m_YDamping: 0.5
-  m_ZDamping: 0.5
+  m_LookaheadTime: 0.1
+  m_LookaheadSmoothing: 0.1
+  m_LookaheadIgnoreY: 1
+  m_XDamping: 1.19
+  m_YDamping: 2.02
+  m_ZDamping: 0.66
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.5
-  m_SoftZoneHeight: 0.45
+  m_SoftZoneHeight: 0.4833333
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1

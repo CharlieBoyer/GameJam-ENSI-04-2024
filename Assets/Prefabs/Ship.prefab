@@ -273,8 +273,11 @@ MonoBehaviour:
   BaseSpeedMultiplier: 300
   VelocityIncrement: 1
   MaximumVelocity: 10
-  TorqueSpeed: 10
-  Sensitivity: 25
+  TorqueSpeed: 15
+  AxisAuthorityThreshold: 0.1
+  MaximumPitch: 80
+  SensitivityYaw: 40
+  SensitivityPitch: 25
 --- !u!114 &1790935500361983657
 MonoBehaviour:
   m_ObjectHideFlags: 0

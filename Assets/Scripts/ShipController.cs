@@ -20,10 +20,13 @@ public class ShipController : MonoBehaviour
 
     [Header("Torque")]
     public float TorqueSpeed = 10f;
-    public float Sensitivity;
+    public float AxisAuthorityThreshold = 0.1f;
+    public float MaximumPitch = 80f;
+    public float SensitivityYaw = 40;
+    public float SensitivityPitch = 25;
 
     private Rigidbody _rb;
-    private InputAction _aim;
+    private InputAction Aim => Actions.FindAction("Aim", true);
 
     private Vector3 _motion;
     private float _yaw;
@@ -53,9 +56,6 @@ public class ShipController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _motion = Vector3.zero;
-        _aim = Actions.FindAction("Aim", true);
-
-        transform.rotation = Quaternion.identity;
     }
 
     private void Update()
@@ -66,10 +66,27 @@ public class ShipController : MonoBehaviour
 
     private void UpdateRotation()
     {
-        _pitch = Mathf.Clamp(_pitch, -80, 80);
+        Vector2 aimDelta = Aim.ReadValue<Vector2>();
+        
+        float incrementYaw = aimDelta.x * SensitivityYaw * Time.deltaTime;
+        float incrementPitch = aimDelta.y * SensitivityPitch * Time.deltaTime;
 
-        Quaternion targetRotation = Quaternion.AngleAxis(_pitch, Vector3.right) * Quaternion.AngleAxis(_yaw, Vector3.up);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * TorqueSpeed);
+        Debug.Log($"AimDelta: Yaw[{aimDelta.x}], Pitch[{aimDelta.y}]");
+
+        if ((incrementPitch > 0 && incrementPitch < AxisAuthorityThreshold) || (incrementPitch < 0 && incrementPitch > -AxisAuthorityThreshold))
+            incrementPitch = 0;
+        if ((incrementYaw > 0 && incrementYaw < AxisAuthorityThreshold) || (incrementPitch < 0 && incrementPitch > -AxisAuthorityThreshold))
+            incrementYaw = 0;
+
+        _yaw += incrementYaw;
+        _pitch -= incrementPitch;
+        _pitch = Mathf.Clamp(_pitch, -MaximumPitch, MaximumPitch);
+
+        //Quaternion targetRotation = Quaternion.AngleAxis(_pitch, Vector3.right) * Quaternion.AngleAxis(_yaw, Vector3.up);
+        Vector3 targetRotation = (Vector3.right * _pitch) + (Vector3.up * _yaw);
+        // targetRotation = Vector3.Lerp(transform.rotation.eulerAngles, targetRotation, Time.deltaTime * TorqueSpeed);
+        transform.eulerAngles = targetRotation;
+        //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * TorqueSpeed);
     }
 
     private void UpdateVelocity()
@@ -86,10 +103,6 @@ public class ShipController : MonoBehaviour
     
     public void OnAim(InputValue input)
     {
-        Vector2 mouseDelta = input.Get<Vector2>();
-        
-        _yaw += mouseDelta.x * Sensitivity * Time.deltaTime;
-        _pitch -= mouseDelta.y * Sensitivity * Time.deltaTime;
     }
 
     public void OnAccelerate() {
