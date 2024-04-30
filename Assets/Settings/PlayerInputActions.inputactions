@@ -80,6 +80,17 @@
                 },
                 {
                     "name": "",
+                    "id": "e46d2290-0650-4664-b11e-9b441acba034",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Accelerate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "31e6e8be-d7e7-4f8d-9ecb-8899f015f6ea",
                     "path": "<Keyboard>/s",
                     "interactions": "",
@@ -96,6 +107,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aad1ec9c-eef2-4d1b-83ae-a117b626aade",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Brake",
                     "isComposite": false,
                     "isPartOfComposite": false
