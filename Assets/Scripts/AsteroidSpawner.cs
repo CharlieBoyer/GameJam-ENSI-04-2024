@@ -17,6 +17,8 @@ public class AsteroidSpawner : MonoBehaviour
         _originTableSpawnerPosition.x = (int)gameObject.transform.position.x - SpawnerScale / 2 * Margin;
         _originTableSpawnerPosition.y = (int)gameObject.transform.position.y - SpawnerScale / 2 * Margin;
         _originTableSpawnerPosition.z = (int)gameObject.transform.position.z;
+        InitPositionsToSpawn();
+        SpawnAstéroid();
     }
 
     // Update is called once per frame
@@ -28,7 +30,7 @@ public class AsteroidSpawner : MonoBehaviour
     public void InitPositionsToSpawn() {
         for (int i = 0; i < _spawnerPosition.GetLength(0); i++) {
             for (int j = 0; j < _spawnerPosition.GetLength(1); j++) {
-                _spawnerPosition[i, j] = Random.Range(0, AsteroidListe.Count);
+                _spawnerPosition[i, j] = Random.Range(0, AsteroidListe.Count+1);
             }
         }
     }
@@ -38,10 +40,12 @@ public class AsteroidSpawner : MonoBehaviour
             for (int j = 0; j < _spawnerPosition.GetLength(1); j++) {
                 if (_spawnerPosition[i, j] != AsteroidListe.Count)
                 {
-                    GameObject x = Instantiate(AsteroidListe[_spawnerPosition[i, j]], gameObject.transform);
-                    /*x.transform.position.x = 
-                        x.transform.position.y = 
-                            x.transform.position.z = */
+                    GameObject x = Instantiate(AsteroidListe[_spawnerPosition[i, j]]);
+                    Vector3 transformPosition = x.transform.position;
+                    transformPosition.x = _originTableSpawnerPosition.x + i * Margin;
+                    transformPosition.y = _originTableSpawnerPosition.y + j * Margin;
+                    transformPosition.z = _originTableSpawnerPosition.z;
+                    x.transform.position = transformPosition;
                 }
             }
         }
