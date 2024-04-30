@@ -279,6 +279,11 @@ PrefabInstance:
       propertyPath: VelocityIncrement
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5952362421399995546, guid: e9d8e2759d85cc04a902d429d21d0ae5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -379,6 +384,11 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 35111545}
+    - target: {fileID: 5261435258292919349, guid: d07d0078cda8bf8419e11ff510b96ff2,
+        type: 3}
+      propertyPath: m_Lens.NearClipPlane
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 6482935767973036539, guid: d07d0078cda8bf8419e11ff510b96ff2,
         type: 3}
       propertyPath: m_ZDamping
@@ -669,7 +679,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.04
   far clip plane: 10000
   field of view: 60.000004
   orthographic: 0

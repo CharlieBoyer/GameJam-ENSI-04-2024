@@ -95,18 +95,40 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: WarningSignExitingCombatZone_UI_0
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 633
+        width: 2314
+        height: 996
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ffb2f0b593d6a40a1c4407f5fbc49e
+      internalID: 1262041877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: af238d50e101a564faae44c8bd99c818
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WarningSignExitingCombatZone_UI_0: 1262041877
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
